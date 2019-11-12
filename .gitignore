@@ -1,3 +1,4 @@
 /dist
 /test/functional-compiled.js
 /coverage-*
+.idea
