@@ -5,7 +5,7 @@ import htmlTags from 'html-tags'
 import svgTags from 'svg-tags'
 
 const xlinkRE = /^xlink([A-Z])/
-const rootAttributes = ['staticClass', 'class', 'style', 'key', 'ref', 'refInFor', 'slot', 'scopedSlots'/*, 'model'*/]
+const rootAttributes = ['staticClass', 'class', 'style', 'key', 'ref', 'refInFor', 'slot', 'scopedSlots', 'model']
 const prefixes = ['props', 'domProps', 'on', 'nativeOn', 'hook', 'attrs']
 const domPropsValueElements = ['input', 'textarea', 'option', 'select']
 const domPropsElements = [...domPropsValueElements, 'video']
@@ -190,7 +190,7 @@ const parseAttributeJSXAttribute = (t, path, attributes, tagName, elementType) =
   value._argument = argument
   value._modifiers = modifiers
 
-  if (rootAttributes.includes(name)) {
+  if (rootAttributes.includes(name) && name !== 'propsModel' && name !== 'attrsModel') {
     attributes[name] = value
   } else {
     if (isDirective(name)) {
